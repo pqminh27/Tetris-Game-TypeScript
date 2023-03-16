@@ -1,2 +1,7 @@
-# Tetris-Game-TypeScript
-A mini Tetris Game using TypeScript, TailwindCSS
+# Tetris Game TypeScript
+
+A Mini Tetris Game using TypeScript, TailwindCSS
+
+---
+
+Instructions:
