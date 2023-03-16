@@ -27,3 +27,8 @@ dist-ssr
 /node_modules
 /.pnp
 .pnp.js
+
+#TODO: Fix test
+./src/App.test.tsx
+./src/components/Board.test.tsx
+

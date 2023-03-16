@@ -11,8 +11,8 @@ class Shape {
     blocks: Array<Block>
     color: string
     private _position: Position
-    private strokeSize = 2
-    private strokeColor = "rgba(0, 0, 0, 0.3)"
+    private strokeSize = 1 //Border size of each Shape
+    private strokeColor = "rgba(0, 0, 0, 0.5)"
 
     constructor(
         context: CanvasRenderingContext2D | null,
@@ -26,7 +26,9 @@ class Shape {
         this.color = this.data.color
         this.blocks = this.createBlocks()
         this._position = position
-        // this.position = position
+        this.blocks.forEach((block) => {
+            block.shapePosition = position
+        })
     }
 
     get position(): Position {
@@ -34,6 +36,9 @@ class Shape {
     }
 
     set position(position: Position) {
+        this.blocks.forEach((block) => {
+            block.shapePosition = position
+        })
         this._position = position
     }
 

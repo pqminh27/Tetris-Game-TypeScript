@@ -1,4 +1,4 @@
-import Shape from "./Shapes"
+import Shape from "./Shape"
 import Controls from "./Controls"
 import Position from "./Position"
 import CollisionDetection from "./CollisionDetection"
@@ -21,10 +21,10 @@ class GameManager {
     private lastTick: number
     private pile: Array<Shape>
     private currentShapeStartingPosition: Position = {x: 80, y: -60}
-    private nextShapeStartingPosition: Position = {x: 10, y: 0}
+    private nextShapeStartingPosition: Position = {x: 30, y: 0}
     private animationFrameId: number | null
     private score: number
-    private gameSpeedChange = 0.02
+    private gameSpeedChange = 0.01
 
     constructor(
         width: number,
@@ -40,17 +40,17 @@ class GameManager {
         this.currentShape = new Shape(
             this.boardContext,
             this.currentShapeStartingPosition,
-            blockSize
+            this.blockSize
         )
         this.nextShape = new Shape(
             this.nextShapeCanvas,
             this.nextShapeStartingPosition,
-            blockSize
+            this.blockSize
         )
         this.playing = playing
         this.oldTimeStamp = 0
         this.timePassed = 0
-        this.gameSpeed = 0.5
+        this.gameSpeed = 0.7
         this.lastTick = 0
         this.pile = []
         this.animationFrameId = null
@@ -70,7 +70,7 @@ class GameManager {
         GameEvents.setPlaying(false)
         this.playing = false
         if (this.animationFrameId)
-            window.cancelAnimationFrame(this.animationFrameId)
+            window.window.cancelAnimationFrame(this.animationFrameId)
 
         if (this.boardContext) {
             this.boardContext.fillStyle = "rgba(0, 0, 0, 0.3)"
@@ -90,7 +90,6 @@ class GameManager {
                 x: this.currentShape.position.x,
                 y: this.currentShape.position.y + this.blockSize,
             }
-
             if (
                 !CollisionDetection.detectCollision(
                     nextMoveShape,
@@ -105,9 +104,7 @@ class GameManager {
                     this.pile.push(this.currentShape)
                     this.checkRows()
                     this.swapNextShape()
-                } else {
-                    this.stop()
-                }
+                } else this.stop()
             }
 
             this.lastTick = this.timePassed + this.gameSpeed

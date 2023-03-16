@@ -3,6 +3,6 @@
     "name": "Tetris Game",
     "start_url": ".",
     "display": "standalone",
-    "theme_color": "#000000",
-    "bacground_color": "#ffffff"
+    "theme_color": "cyan",
+    "background_color": "cyan"
 }

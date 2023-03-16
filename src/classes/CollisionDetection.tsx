@@ -1,6 +1,6 @@
 // import isEqual from "lodash"
 import isEqual from "lodash.isequal"
-import Shape from "./Shapes"
+import Shape from "./Shape"
 
 class CollisionDetection {
     static detectCollision(
