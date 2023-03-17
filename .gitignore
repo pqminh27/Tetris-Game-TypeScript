@@ -29,6 +29,4 @@ dist-ssr
 .pnp.js
 
 #TODO: Fix test
-./src/App.test.tsx
-./src/components/Board.test.tsx
-
+sum.test.tsx
