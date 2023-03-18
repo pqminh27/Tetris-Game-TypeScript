@@ -24,7 +24,7 @@ const Board = ({gameManager, setGame}: BoardProps) => {
             width={gameManager.width}
             height={gameManager.height}
             className="border-solid border-2 border-gray-100 bg-cyan-100 rounded-md mb-6 mr-14"
-            testid-canvas="canvas-element"
+            data-testid="canvas-element" // for testing
         />
     )
 }

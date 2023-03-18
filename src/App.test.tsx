@@ -12,16 +12,12 @@ describe("#sum", () => {
     it("returns the sum of 1 number in array in App", () => {
         expect(sum(2)).toBe(2)
     })
-    beforeEach(() => {
-        render(<App />)
-    })
     it("render title", async () => {
-        expect(screen.getByText(/Mini Tetris Game/i)).toBeDefined()
+        render(<App />)
+        expect(screen.getByText(/Mini Tetris Game/i)).toBeInTheDocument()
+    })
+    it("render score", async () => {
+        render(<App />)
+        expect(screen.getByText(/Your score/i)).toBeInTheDocument()
     })
 })
-
-// test("Render title", async () => {
-//     render(<App />)
-//     const title = screen.getByText(/Mini Tetris Game/i)
-//     expect(title).toBeInTheDocument()
-// })
